@@ -1,6 +1,8 @@
-# test-project
+# pomodoro-timer
 
 > A Vue.js project
+> Creating a pomodoro timer, challenge from scotch.io website
+> Startup project from codesandbox.io
 
 ## Build Setup
 
