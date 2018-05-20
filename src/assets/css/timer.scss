@@ -13,3 +13,13 @@
 .button {
   margin-right: 5px;
 }
+
+@media (max-width: 600px) {
+  #message {
+    font-size: 30px;
+  }
+
+  #timer {
+    font-size: 100px;
+  }
+}

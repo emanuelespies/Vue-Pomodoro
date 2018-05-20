@@ -1,6 +1,6 @@
 <template>
     <!-- our template -->
-  <section id="app" class=" is-info is-fullheight is-bold">
+  <section class=" is-info is-fullheight is-bold">
       <div class="container has-text-centered">
         <h1 class="title is-6">{{title}}</h1>
         
@@ -41,12 +41,14 @@
 </template>
 
 <script>
+import audioFile from "../assets/sounds/timer-off.mp3";
+
 export default {
   name: "Timer",
   data() {
     return {
       timer: null,
-      totalTime: 1 * 60,
+      totalTime: 25 * 60,
       resetButton: false,
       title: "Let the countdown begin!"
     };
@@ -63,21 +65,30 @@ export default {
       this.resetButton = true;
       this.title = "Never quit, keep going!";
     },
-    resetTimer: function(over) {
-      this.totalTime = 1 * 60;
+    resetTimer: function(countdownOver) {
+      this.totalTime = 25 * 60;
       clearInterval(this.timer);
       this.timer = null;
       this.resetButton = false;
       this.title = "Let the countdown begin!!";
-      return over === true
-        ? (this.title = "Good Work! Let the countdown begin again!")
-        : "";
+      return countdownOver === true ? this.playSound() : "";
     },
     padTime: function(time) {
       return (time < 10 ? "0" : "") + time;
     },
     countdown: function() {
       return this.totalTime > 0 ? this.totalTime-- : this.resetTimer(true);
+    },
+    showAlert: function() {
+      this.title = "Good Work! Let the countdown begin again :)";
+      alert("Timer is over");
+    },
+    playSound: function() {
+      if (audioFile) {
+        let audio = new Audio(audioFile);
+        audio.play();
+      }
+      this.showAlert();
     }
   },
   computed: {

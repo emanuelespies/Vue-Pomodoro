@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <HelloWorld/>
+    <!-- <HelloWorld/> the original component -->
     <Timer />
+    <Copyright />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+//import HelloWorld from "./components/HelloWorld";
 import Timer from "./components/Timer";
+import Copyright from "./components/Copyright";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
-    Timer
+    //HelloWorld,
+    Timer,
+    Copyright
   }
 };
 </script>
